@@ -6,11 +6,11 @@ let colors: string[]
 
 const getColor = () => {
   const chars = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F']
-  let colorArray: string[] = []
+  const colorArray: string[] = []
   for (let i = 0; i < 6; i++) {
     colorArray.push(chars[Math.round(Math.random() * chars.length)])
   }
-  let color = `#${colorArray.join('')}`
+  const color = `#${colorArray.join('')}`
 
   return color
 }
@@ -18,7 +18,7 @@ const getColor = () => {
 const setColor = () => {
   correctColor = getColor()
   colors = [correctColor, getColor(), getColor()]
-  colors.sort((a, b) => 0.5 - Math.random())
+  colors.sort(() => 0.5 - Math.random())
   colorBox.style.background = correctColor
 }
 
