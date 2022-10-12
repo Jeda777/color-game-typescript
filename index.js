@@ -15,7 +15,7 @@ var getColor = function () {
 var setColor = function () {
     correctColor = getColor();
     colors = [correctColor, getColor(), getColor()];
-    colors.sort(function (a, b) { return 0.5 - Math.random(); });
+    colors.sort(function () { return 0.5 - Math.random(); });
     colorBox.style.background = correctColor;
 };
 var setButtons = function () {
