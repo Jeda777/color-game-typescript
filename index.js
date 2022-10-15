@@ -4,13 +4,7 @@ var resultBox = document.getElementById('resultBox');
 var correctColor;
 var colors;
 var getColor = function () {
-    var chars = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'];
-    var colorArray = [];
-    for (var i = 0; i < 6; i++) {
-        colorArray.push(chars[Math.round(Math.random() * chars.length)]);
-    }
-    var color = "#".concat(colorArray.join(''));
-    return color;
+    return "#".concat(Math.floor(Math.random() * 0xffffff).toString(16));
 };
 var setColor = function () {
     correctColor = getColor();
