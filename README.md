@@ -1,9 +1,10 @@
-# hex_color_game_typescript
+# Color Game
 
-First typescript project. The game is to choose the right hex color
+In the game, you must select the correct color shown on the screen (hex or rgb depending on the mode). Made with typescript.
 
-- [Live site](https://jeda777.github.io/hex-color-game-typescript/)
+- [Live site](https://jeda777.github.io/color-game-typescript/)
 
 ## Screenshot
 
-![](./Screenshot.png)
+![](./Screenshot1.png)
+![](./Screenshot2.png)

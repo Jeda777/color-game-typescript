@@ -1,18 +1,34 @@
 const colorBox = document.getElementById('colorBox')
-const buttons = document.querySelectorAll('button')
+const buttons = document.querySelectorAll('.btn-color') as NodeListOf<HTMLButtonElement>
 const resultBox = document.getElementById('resultBox')
+const btnHex = document.querySelector('#btn-hex')
+const btnRgb = document.querySelector('#btn-rgb')
+let mode = 'hex'
 let correctColor: string
 let colors: string[]
 
 const getColor = () => {
-  return `#${Math.floor(Math.random() * 0xffffff).toString(16)}`
+  if (mode === 'hex') {
+    return `#${Math.floor(Math.random() * 0xffffff).toString(16)}`
+  } else if (mode === 'rgb') {
+    const r = Math.floor(Math.random() * 256)
+    const g = Math.floor(Math.random() * 256)
+    const b = Math.floor(Math.random() * 256)
+    return `(${r}, ${g}, ${b})`
+  } else {
+    throw new Error('Mode not recognised.')
+  }
 }
 
 const setColor = () => {
   correctColor = getColor()
   colors = [correctColor, getColor(), getColor()]
   colors.sort(() => 0.5 - Math.random())
-  colorBox.style.background = correctColor
+  if (mode === 'hex') {
+    colorBox.style.background = correctColor
+  } else if (mode === 'rgb') {
+    colorBox.style.background = `rgb${correctColor}`
+  }
 }
 
 const setButtons = () => {
@@ -21,8 +37,11 @@ const setButtons = () => {
   }
 }
 
-setColor()
-setButtons()
+const newGame = () => {
+  setColor()
+  setButtons()
+}
+newGame()
 
 for (let i = 0; i < buttons.length; i++) {
   buttons[i].addEventListener('click', (e) => {
@@ -36,8 +55,7 @@ for (let i = 0; i < buttons.length; i++) {
 }
 
 const success = () => {
-  setColor()
-  setButtons()
+  newGame()
   resultBox.innerText = 'Good Job'
   resultBox.style.color = 'green'
   setTimeout(() => {
@@ -51,3 +69,12 @@ const tryAgain = () => {
     resultBox.innerText = ''
   }, 3000)
 }
+
+btnHex.addEventListener('click', () => {
+  mode = 'hex'
+  newGame()
+})
+btnRgb.addEventListener('click', () => {
+  mode = 'rgb'
+  newGame()
+})

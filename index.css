@@ -17,21 +17,37 @@ body {
   background: rgb(54, 54, 54);
 }
 
-#colorBox {
-  height: 200px;
-  width: 300px;
-}
-#buttonBox {
-  width: 300px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 10px;
-}
 button {
   border: none;
   padding-block: 8px;
   border-radius: 4px;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  font-size: 12px;
+}
+button:hover {
+  opacity: 0.7;
+}
+
+#modeButtonBox {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+#modeButtonBox button {
+  font-size: 22px;
+  padding-inline: 2rem;
+}
+#colorBox {
+  height: 200px;
+  width: 330px;
+}
+#buttonBox {
+  width: 330px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
 }
 #resultBox {
   font-size: 24px;
